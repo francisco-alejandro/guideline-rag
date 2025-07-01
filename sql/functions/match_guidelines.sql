@@ -12,7 +12,7 @@ returns table (
 )
 language sql
 as $$
-  select id, title, content, tags, 1 - (embedding <=> query_embedding) as similarity
+  select id, title, content, tags, 1 - (embedding <=> query) as similarity
   from guidelines
   where 1 - (embedding <=> query) > threshold
   order by embedding <=> query

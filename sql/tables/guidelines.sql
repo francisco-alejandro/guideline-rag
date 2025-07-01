@@ -3,7 +3,7 @@ create table public.guidelines (
   title text null,
   content text null,
   tags text[] null,
-  embedding extensions.vector null,
+  embedding vector null,
   active boolean null default true,
   created_at timestamp without time zone null default now(),
   constraint guidelines_pkey primary key (id)
