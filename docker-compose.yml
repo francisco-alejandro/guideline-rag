@@ -8,7 +8,7 @@ services:
     ports:
       - "4000:4000"
     env_file:
-      - apps/api/.local.env
+      - apps/api/.env
     environment:
       - NODE_ENV=development
       - PORT=4000
