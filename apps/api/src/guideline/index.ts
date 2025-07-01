@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { SharedModule } from '~shared';
 import { GuidelinePostController } from '~guideline/infrastructure/network';
 import { GuidelineCreateCommandHandler } from '~guideline/application/create';
@@ -34,6 +34,4 @@ const GuidelineAdapterProvider = {
   ],
   exports: [GUIDELINE_TOKEN],
 })
-export class GuidelineModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {}
-}
+export class GuidelineModule {}

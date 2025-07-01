@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { SharedModule } from '~shared';
 import { MessageCreateCommandHandler } from './application/create';
 import { MessageSemanticReadQueryHandler } from './application/read';
@@ -21,6 +21,4 @@ const MessageRepositoryProvider = {
     MessageSemanticReadQueryHandler,
   ],
 })
-export class CompletionModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {}
-}
+export class CompletionModule {}

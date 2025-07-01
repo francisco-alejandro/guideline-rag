@@ -11,9 +11,14 @@ import { MessageCreateCommand } from '~completion/application/create';
 import { MessageCreateDTO } from './MessageCreateDTO';
 import { MessageSemanticReadQuery } from '~completion/application/read';
 import { MessageSerializer } from '../serializer';
+import { Message } from '~completion/domain';
+
+type Guideline = {
+  content: string;
+};
 
 interface GuidelineAdapter {
-  read: (content: string) => Promise<{ content: string }[]>;
+  read: (content: string) => Promise<Guideline[]>;
 }
 
 @Controller('messages')
@@ -25,13 +30,13 @@ export class MessagePostController {
     private readonly guidelineAdapter: GuidelineAdapter,
   ) {}
 
-  private async getGuidelines(content: string) {
+  private async getGuidelines(content: string): Promise<string[]> {
     const guidelines = await this.guidelineAdapter.read(content);
 
     return guidelines.map((guideline) => guideline.content);
   }
 
-  private async getMessages(content: string) {
+  private async getMessages(content: string): Promise<Message[]> {
     const query = new MessageSemanticReadQuery({
       content,
     });
@@ -55,7 +60,10 @@ export class MessagePostController {
       guidelines,
     });
 
-    const response = await this.commandBus.execute(command);
+    const response = await this.commandBus.execute<
+      MessageCreateCommand,
+      Message
+    >(command);
 
     return new MessageSerializer(response);
   }

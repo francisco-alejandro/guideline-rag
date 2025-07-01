@@ -110,11 +110,15 @@ Users can ask questions and generate code through the web application's chat int
 
 ## Development
 
-### Available Scripts
+### Makefile Commands
 
-- `yarn dev` - Start development servers
-- `yarn build` - Build all packages
-- `yarn test` - Run tests
+The project includes a Makefile with convenient commands:
+
+- `make install` - Install dependencies and set up environment files
+- `make dev` - Start development environment
+- `make deploy-local` - Deploy locally using Docker Compose
+- `make lint` - Run linting across all workspaces
+- `make test` - Run tests across all workspaces
 
 ## Roadmap
 

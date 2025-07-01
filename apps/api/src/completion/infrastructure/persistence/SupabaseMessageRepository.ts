@@ -1,7 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseClient } from '@supabase/supabase-js';
-import { Message, MessageRepository } from '~completion/domain';
+import { Message, MessageRepository, Role } from '~completion/domain';
 import { Id } from '~shared/domain';
+
+type MessageDTO = {
+  id: string;
+  role: Role;
+  chat_id: string;
+  turn_id: string;
+  content: string;
+  embedding: number[];
+};
 
 @Injectable()
 export class SupabaseMessageRepository implements MessageRepository {
@@ -25,11 +34,11 @@ export class SupabaseMessageRepository implements MessageRepository {
   }
 
   async findById(id: Id): Promise<Message | null> {
-    const { data, error } = await this.supabase
+    const { data, error } = (await this.supabase
       .from('messages')
       .select('*')
       .eq('id', id.value)
-      .single();
+      .single()) as { data: MessageDTO | null; error: Error | null };
 
     if (error) {
       throw new Error(error.message);
@@ -42,8 +51,8 @@ export class SupabaseMessageRepository implements MessageRepository {
     return new Message(
       new Id(data.id),
       data.role,
-      data.chat_id,
-      data.turn_id,
+      new Id(data.chat_id),
+      new Id(data.turn_id),
       data.content,
       data.embedding,
     );
@@ -54,14 +63,18 @@ export class SupabaseMessageRepository implements MessageRepository {
     threshold: number,
     limit: number,
   ): Promise<Message[]> {
-    const { data, error } = await this.supabase.rpc('match_messages', {
+    const { data, error } = (await this.supabase.rpc('match_messages', {
       query: embedding,
       threshold: threshold,
       count: limit,
-    });
+    })) as { data: MessageDTO[] | null; error: Error | null };
 
     if (error) {
       throw new Error(error.message);
+    }
+
+    if (!data) {
+      return [];
     }
 
     return data.map(

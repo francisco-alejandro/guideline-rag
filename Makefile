@@ -1,4 +1,4 @@
-.PHONY: install dev deploy-local
+.PHONY: install dev deploy-local lint test
 
 # Install dependencies and setup environment files
 install:
@@ -22,4 +22,14 @@ dev:
 # Deploy locally using Docker Compose
 deploy-local:
 	@echo "Starting local deployment with Docker Compose..."
-	docker-compose up 
+	docker-compose up
+
+# Run linting across all workspaces
+lint:
+	@echo "Running linting across all workspaces..."
+	yarn lint
+
+# Run tests across all workspaces
+test:
+	@echo "Running tests across all workspaces..."
+	yarn test 
