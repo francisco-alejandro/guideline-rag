@@ -17,14 +17,8 @@ abstract class Event<T = unknown> {
     public topic: string,
     public aggregateRootId: string,
     public data: T,
-    public eventType: string,
-    version?: number,
-    metadata?: EventMetadata,
   ) {
     this.id = Id.generate().value;
-    this.version = version ?? 1;
-    this.timestamp = new Date();
-    this.metadata = metadata ?? {};
   }
 }
 
