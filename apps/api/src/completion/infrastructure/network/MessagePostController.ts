@@ -1,9 +1,18 @@
-import { Body, Controller, Inject, Post, Res } from '@nestjs/common';
+import {
+  Body,
+  ClassSerializerInterceptor,
+  Controller,
+  Inject,
+  Post,
+  Res,
+  UseInterceptors,
+} from '@nestjs/common';
 import { Response } from 'express';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { MessageCreateCommand } from '~completion/application/create';
 import { MessageCreateDTO } from './MessageCreateDTO';
 import { MessageSemanticReadQuery } from '~completion/application/read';
+import { MessageSerializer } from '../serializer';
 
 interface GuidelineAdapter {
   read: (content: string) => Promise<{ content: string }[]>;
@@ -31,8 +40,10 @@ export class MessagePostController {
 
     return this.queryBus.execute(query);
   }
+
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post('/')
-  async register(@Body() body: MessageCreateDTO, @Res() res: Response) {
+  async register(@Body() body: MessageCreateDTO): Promise<MessageSerializer> {
     const { content } = body;
 
     const [messages, guidelines] = await Promise.all([
@@ -48,6 +59,6 @@ export class MessagePostController {
 
     const response = await this.commandBus.execute(command);
 
-    return res.json({ response });
+    return new MessageSerializer(response);
   }
 }

@@ -21,7 +21,7 @@ export class MessageCreateCommandHandler
     turnId: Id,
     content: string,
     vector: number[] | null,
-  ): Promise<void> {
+  ): Promise<Message> {
     const message = Message.create(
       Id.generate(),
       role,
@@ -36,6 +36,8 @@ export class MessageCreateCommandHandler
     for (const event of message.pullDomainEvents()) {
       this.bus.publish(event);
     }
+
+    return message;
   }
 
   private getChatId(chatId: string | undefined): Id {
@@ -46,7 +48,7 @@ export class MessageCreateCommandHandler
     return Id.generate();
   }
 
-  async execute(command: MessageCreateCommand): Promise<string> {
+  async execute(command: MessageCreateCommand): Promise<Message> {
     const { content } = command.data;
     const chatId = this.getChatId(command.data.chatId);
     const turnId = Id.generate();
@@ -60,12 +62,18 @@ export class MessageCreateCommandHandler
       command.data.guidelines,
     );
 
-    const response = await this.responseService.send(
+    const text = await this.responseService.send(
       prompt.input,
       prompt.instructions,
     );
 
-    await this.createAndEmit('assistant', chatId, turnId, response, null);
+    const response = await this.createAndEmit(
+      'assistant',
+      chatId,
+      turnId,
+      text,
+      null,
+    );
 
     return response;
   }
