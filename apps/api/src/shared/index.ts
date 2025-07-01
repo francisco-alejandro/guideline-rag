@@ -31,7 +31,7 @@ const ResponseServiceProvider = {
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.local.env',
+      envFilePath: '.env',
     }),
     CqrsModule,
     SharedModule,
