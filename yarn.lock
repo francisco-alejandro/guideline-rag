@@ -749,6 +749,47 @@
   resolved "https://registry.yarnpkg.com/@inquirer/type/-/type-3.0.7.tgz#b46bcf377b3172dbc768fdbd053e6492ad801a09"
   integrity sha512-PfunHQcjwnju84L+ycmcMKB/pTPIngjUJvfnRhKY6FKPuYXlM4aQCb/nIdTFR6BEhMjFvngzvng/vBAJMZpLSA==
 
+"@inversifyjs/common@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/common/-/common-1.5.2.tgz#6836287fef1c25dddbdf6af345a33a6d6caf6835"
+  integrity sha512-WlzR9xGadABS9gtgZQ+luoZ8V6qm4Ii6RQfcfC9Ho2SOlE6ZuemFo7PKJvKI0ikm8cmKbU8hw5UK6E4qovH21w==
+
+"@inversifyjs/container@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/container/-/container-1.10.3.tgz#115e953f3928526e3f69a382d23ae45708adcb9d"
+  integrity sha512-uuB6fNd3XeFBtsysJXqOt0G114M69EpQCfM2G2XnhNYUb/osnHNGeubl2sMHd6SO08HbtAD8yNQOkPpxKeQTEw==
+  dependencies:
+    "@inversifyjs/common" "1.5.2"
+    "@inversifyjs/core" "5.3.3"
+    "@inversifyjs/plugin" "0.2.0"
+    "@inversifyjs/reflect-metadata-utils" "1.2.0"
+
+"@inversifyjs/core@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/core/-/core-5.3.3.tgz#a0588a7dd8f01373b79ec0d2cdd2b15320163713"
+  integrity sha512-sx7msHtmgu/7gNPTMN9TzeBiE7y9y3dCEbLgtY8JOLP7okRPrrjTl7w6pd5RY00s/AovdDoE7BscNZVjqWIR0A==
+  dependencies:
+    "@inversifyjs/common" "1.5.2"
+    "@inversifyjs/prototype-utils" "0.1.2"
+    "@inversifyjs/reflect-metadata-utils" "1.2.0"
+
+"@inversifyjs/plugin@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/plugin/-/plugin-0.2.0.tgz#03957c7d02803f32254a2ff2f8f8ffb05ec57eec"
+  integrity sha512-R/JAdkTSD819pV1zi0HP54mWHyX+H2m8SxldXRgPQarS3ySV4KPyRdosWcfB8Se0JJZWZLHYiUNiS6JvMWSPjw==
+
+"@inversifyjs/prototype-utils@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/prototype-utils/-/prototype-utils-0.1.2.tgz#2ff5241c2f50772b3202ad5f052b84852eedd8d3"
+  integrity sha512-WZAEycwVd8zVCPCQ7GRzuQmjYF7X5zbjI9cGigDbBoTHJ8y5US9om00IAp0RYislO+fYkMzgcB2SnlIVIzyESA==
+  dependencies:
+    "@inversifyjs/common" "1.5.2"
+
+"@inversifyjs/reflect-metadata-utils@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@inversifyjs/reflect-metadata-utils/-/reflect-metadata-utils-1.2.0.tgz#06ef157a29ffa532a2a67731f80a03ab5060c364"
+  integrity sha512-EvXdBP+IjAZ3QKWFWGDzWLacyng9RMohtZ0c0EPUmvbaF4wgfwrE6n92ilt9aGwdbE5roGmDTmoRSmvavVOtIA==
+
 "@isaacs/balanced-match@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@isaacs/balanced-match/-/balanced-match-4.0.1.tgz#3081dadbc3460661b751e7591d7faea5df39dd29"
@@ -1649,6 +1690,18 @@
     "@tailwindcss/oxide" "4.1.11"
     postcss "^8.4.41"
     tailwindcss "4.1.11"
+
+"@tanstack/query-core@5.81.5":
+  version "5.81.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.81.5.tgz#14e0cc778bad8bc11d1cf130709910d8a353bb73"
+  integrity sha512-ZJOgCy/z2qpZXWaj/oxvodDx07XcQa9BF92c0oINjHkoqUPsmm3uG08HpTaviviZ/N9eP1f9CM7mKSEkIo7O1Q==
+
+"@tanstack/react-query@^5.81.5":
+  version "5.81.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.81.5.tgz#660dba8bb35f24c4cf3617b299a1e3990a3bb49e"
+  integrity sha512-lOf2KqRRiYWpQT86eeeftAGnjuTR35myTP8MXyvHa81VlomoAWNEd8x5vkcAfQefu0qtYCvyqLropFZqgI2EQw==
+  dependencies:
+    "@tanstack/query-core" "5.81.5"
 
 "@tokenizer/inflate@^0.2.7":
   version "0.2.7"
@@ -4733,6 +4786,15 @@ internal-slot@^1.1.0:
     es-errors "^1.3.0"
     hasown "^2.0.2"
     side-channel "^1.1.0"
+
+inversify@^7.5.4:
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/inversify/-/inversify-7.5.4.tgz#5d4a933e8b225428ae67496f5e9ff7a97532222d"
+  integrity sha512-4UqlM8ALDzxsqQpK9ExQJAgnJoYhGJ88sr5v0ukwjpwIsE/ZKl9PyRtm9sWmViaHA4n2SergxC5sL3eeW+EWLQ==
+  dependencies:
+    "@inversifyjs/common" "1.5.2"
+    "@inversifyjs/container" "1.10.3"
+    "@inversifyjs/core" "5.3.3"
 
 ip-address@^9.0.5:
   version "9.0.5"

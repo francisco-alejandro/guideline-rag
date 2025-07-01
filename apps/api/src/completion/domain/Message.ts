@@ -32,7 +32,7 @@ export class Message extends AggregateRoot {
         chatId: message.chatId.value,
         turnId: message.turnId.value,
         content: message.content,
-        vector: message.vector,
+        vector: message.vector || null,
       }),
     );
 
