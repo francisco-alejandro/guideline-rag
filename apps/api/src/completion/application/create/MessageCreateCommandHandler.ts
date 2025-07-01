@@ -58,6 +58,7 @@ export class MessageCreateCommandHandler
     await this.createAndEmit('user', chatId, turnId, content, embedding);
 
     const prompt = Prompt.create(
+      content,
       command.data.messages,
       command.data.guidelines,
     );

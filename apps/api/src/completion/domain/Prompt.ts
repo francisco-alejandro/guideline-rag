@@ -49,10 +49,16 @@ export class Prompt {
     public readonly input: string,
   ) {}
 
-  static create(messages: Message[], guidelines: string[]): Prompt {
+  static create(
+    content: string,
+    messages: Message[],
+    guidelines: string[],
+  ): Prompt {
     const instructions = generateInstructions(guidelines);
     const fewShotExamples = generateFewShotExamples(messages);
 
-    return new Prompt(instructions, fewShotExamples);
+    const input = `${content}\n\n Given the following examples:\n${fewShotExamples}`;
+
+    return new Prompt(instructions, input);
   }
 }

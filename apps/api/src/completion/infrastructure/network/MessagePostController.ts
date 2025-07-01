@@ -4,10 +4,8 @@ import {
   Controller,
   Inject,
   Post,
-  Res,
   UseInterceptors,
 } from '@nestjs/common';
-import { Response } from 'express';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { MessageCreateCommand } from '~completion/application/create';
 import { MessageCreateDTO } from './MessageCreateDTO';
