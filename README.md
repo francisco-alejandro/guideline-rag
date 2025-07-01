@@ -24,6 +24,10 @@ This project follows a monorepo structure with the following components:
 
 - **UI** (`packages/ui/`): Shared React components
 
+### Technical Decisions
+
+Technical decisions and architectural choices are documented in the [Architecture Decision Records (ADR)](./adr/) directory. These records provide context and rationale for key design decisions made throughout the project's development.
+
 ## Getting Started
 
 ### Prerequisites
