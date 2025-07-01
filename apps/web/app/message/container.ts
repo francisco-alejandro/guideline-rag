@@ -1,6 +1,6 @@
 import { Container } from "inversify";
 import { container as sharedContainer } from "../shared/container";
-import { HttpMessageService } from "./infrastructure";
+import { HttpMessageService } from "./infrastructure/network";
 import { MessageService, MessageCreateUseCase } from "./domain";
 import { MessageCreate } from "./application/create";
 

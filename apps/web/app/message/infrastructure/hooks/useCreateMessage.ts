@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { Message, MessageCreateUseCase } from "../../domain";
+import { MessageCreateUseCase } from "../../domain";
 import { useProvider } from "./useProvider";
 
 export const useCreateMessage = () => {
