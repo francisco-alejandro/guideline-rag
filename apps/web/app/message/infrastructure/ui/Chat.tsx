@@ -58,6 +58,7 @@ const Chat = () => {
                 key={message.id}
                 variant={message.role === "user" ? "primary" : "outline"}
                 content={message.content}
+                highlight={message.role === "assistant"}
               />
             ))}
           </div>
