@@ -1,4 +1,5 @@
 import { Button, Textarea } from "@repo/ui/components";
+import { Chat, Layout } from "./message/infrastructure";
 
 const Form = () => {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
   return (
     <div className="flex w-full min-h-screen flex-col justify-between items-center">
       <main className="flex flex-col w-full max-w-screen-md p-4">
+        <Layout>
+          <Chat />
+        </Layout>
         <div className="flex flex-col justify-center items-center gap-4 mt-16 sm:mt-64">
           <h1 className="text-2xl font-bold w-full text-center">
             What do you want to build?
