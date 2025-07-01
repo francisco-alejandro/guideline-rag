@@ -30,7 +30,7 @@ const generateFewShotExamples = (messages: Message[]): string => {
 
   const examples: string[] = [];
 
-  for (const [_, messages] of groupedMessages) {
+  for (const [, messages] of groupedMessages) {
     const userMessage = messages.find((m) => m.role === 'user');
     const assistantMessage = messages.find((m) => m.role === 'assistant');
 

@@ -20,7 +20,7 @@ class StoreEventHandler {
         }),
       );
 
-      this.repository.save(event as Event);
+      void this.repository.save(event);
     });
   }
 
