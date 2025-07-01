@@ -88,8 +88,25 @@ This will start all services using Docker Compose.
 
 ## Usage
 
-1. **Create Guidelines**: Use the web interface to create coding guidelines that define your coding standards
-2. **Ask Questions**: Use the chat interface to ask questions about code generation
+### Creating Guidelines (Admin Only)
+
+Guidelines are intended to be created by administrators and should be done through API calls. The API endpoints are defined in the Bruno collection located in the `rest/` directory.
+
+**Example: Creating a Guideline**
+
+```bash
+curl -X POST http://localhost:4000/guidelines \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Just the function",
+    "content": "Return just the code generated. As markdown",
+    "tags": ["coding"]
+  }'
+```
+
+### Asking Questions
+
+Users can ask questions and generate code through the web application's chat interface. The system will retrieve relevant guidelines and generate code that adheres to those guidelines.
 
 ## Development
 
