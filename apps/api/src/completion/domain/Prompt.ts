@@ -1,7 +1,7 @@
 import { Message } from './Message';
 
 const DEFAULT_INSTRUCTION =
-  'You are a helpful assistant. Provide clear, accurate, and helpful responses.';
+  'You are a senior developer assistant. Provide clear, accurate, and helpful responses with expert-level technical guidance.';
 
 const generateInstructions = (guidelines: string[]): string => {
   if (!guidelines || !guidelines.length) {
