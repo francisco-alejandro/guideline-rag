@@ -1,1 +1,2 @@
-export * from "./dependecies";
+export * from "./DependeciesContext";
+export * from "./ChatContext";
