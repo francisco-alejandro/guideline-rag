@@ -4,7 +4,7 @@ create table public.messages (
   chat_id uuid not null,
   turn_id uuid not null,
   content text not null,
-  embedding extensions.vector null,
+  embedding vector null,
   id uuid not null,
   constraint messages_pkey primary key (id)
 ) TABLESPACE pg_default;
