@@ -17,6 +17,9 @@ class HttpMessageService implements MessageService {
   async create(content: string): Promise<Message> {
     const response = await fetch(`${this.settings.apiHost}/messages`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ content }),
     });
 
