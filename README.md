@@ -37,6 +37,32 @@ Technical decisions and architectural choices are documented in the [Architectur
 - Supabase account and project
 - OpenAI API key
 
+### Supabase Setup
+
+Before running the application, you need to set up your Supabase database with the required schema and extensions:
+
+1. **Create a new Supabase project** at [supabase.com](https://supabase.com)
+
+2. **Enable the PostgreSQL Vector Extension**:
+   - Go to your Supabase project dashboard
+   - Navigate to Database → Extensions
+   - Enable the `vector` extension
+
+3. **Create the Role Type**:
+   - Go to SQL Editor in your Supabase dashboard
+   - Execute the SQL from `sql/enums/role.sql`
+
+4. **Create Database Tables**:
+   - Execute the SQL files from `sql/tables/` in the following order:
+     - `events.sql`
+     - `guidelines.sql`
+     - `messages.sql`
+
+5. **Create PostgreSQL Functions**:
+   - Execute the SQL files from `sql/functions/`:
+     - `match_guidelines.sql`
+     - `match_messages.sql`
+
 ### Installation
 
 1. Clone the repository:
