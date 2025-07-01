@@ -98,3 +98,36 @@ This will start all services using Docker Compose.
 - `yarn dev` - Start development servers
 - `yarn build` - Build all packages
 - `yarn test` - Run tests
+
+## Roadmap
+
+### Next Steps
+
+1. **Code Generation Tools Integration**
+   - Add tools call functionality to execute generated code
+   - Implement code validation and testing frameworks
+   - Support for multiple programming languages and frameworks
+
+2. **User Authentication & Management**
+   - User login and registration system
+   - User profile management
+   - Role-based access control
+
+3. **Enhanced Chat Experience**
+   - Chat threads and conversation history
+   - Message persistence and retrieval
+   - Real-time chat capabilities
+
+### Future Enhancements
+
+4. **CI/CD Pipeline**
+   - Automated testing and deployment
+   - Environment-specific deployments
+
+5. **Infrastructure as Code**
+   - Terraform configurations
+   - Automated infrastructure provisioning
+
+6. **Advanced Features**
+   - Code review and collaboration tools
+   - Advanced analytics and usage metrics
