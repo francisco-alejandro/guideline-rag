@@ -1,19 +1,26 @@
+import React from "react";
+import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter";
+
+const SyntaxHighlighter =
+  Prism as typeof React.Component<SyntaxHighlighterProps>;
+
 interface BubbleProps {
   variant: "primary" | "outline";
+  highlight: boolean;
   content: string;
 }
 
 const getVariant = (variant: "primary" | "outline") => {
-  const base = "max-w-xs lg:max-w-md px-4 py-2 rounded-lg";
+  const base = "px-4 py-2 rounded-lg";
 
   if (variant === "primary") {
-    return `${base} bg-black text-white rounded-br-none`;
+    return `${base} max-w-xs lg:max-w-md bg-black text-white rounded-br-none`;
   }
 
-  return `${base} bg-white text-black border-black border rounded-bl-none`;
+  return `${base} w-fullbg-white text-black border-black border rounded-bl-none`;
 };
 
-export const Bubble = ({ variant, content }: BubbleProps) => {
+export const Bubble = ({ variant, content, highlight }: BubbleProps) => {
   const styles = getVariant(variant);
 
   return (
@@ -21,7 +28,11 @@ export const Bubble = ({ variant, content }: BubbleProps) => {
       className={`flex ${variant === "primary" ? "justify-end" : "justify-start"} mb-4`}
     >
       <div className={styles}>
-        <p className="text-sm">{content}</p>
+        {highlight ? (
+          <SyntaxHighlighter language="python">{content}</SyntaxHighlighter>
+        ) : (
+          <p className="text-sm">{content}</p>
+        )}
       </div>
     </div>
   );
