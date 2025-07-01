@@ -63,6 +63,8 @@ Before running the application, you need to set up your Supabase database with t
      - `match_guidelines.sql`
      - `match_messages.sql`
 
+> **Note**: In future versions, these manual database setup steps will be replaced by a proper migration tool for easier deployment and version control.
+
 ### Installation
 
 1. Clone the repository:
