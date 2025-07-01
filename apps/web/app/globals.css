@@ -1,1 +1,4 @@
+/* In version 4.1.11, Tailwind CSS introduced a new configuration syntax. */
+@config "../tailwind.config.js";
+
 @import "tailwindcss";
