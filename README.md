@@ -39,23 +39,36 @@ This project follows a monorepo structure with the following components:
 
 ```bash
 git clone <repository-url>
-cd bot
+cd guideline-rag
 ```
 
-2. Install dependencies:
+2. Install dependencies and set up environment files:
 
 ```bash
-yarn install
+make install
 ```
 
-3. Set up environment variables:
+This command will:
+
+- Install all dependencies using `yarn install`
+- Copy sample environment files to create `.env` files in both `apps/api/` and `apps/web/` directories
+
+⚠️ **Important**: After running `make install`, you must manually configure your environment variables in:
+
+- `apps/api/.env`
+- `apps/web/.env`
+
+Check the `sample.env` files in each directory for the required variables (Supabase and OpenAI credentials).
+
+### Starting Development
+
+Start the development servers:
 
 ```bash
-# Create .env files in apps/api and apps/web directories
-# Add your Supabase and OpenAI credentials
+make dev
 ```
 
-4. Start the development servers:
+Or alternatively:
 
 ```bash
 yarn dev
@@ -63,11 +76,20 @@ yarn dev
 
 This will start both the API server (port 3001) and the web application (port 3000).
 
+### Local Deployment
+
+To deploy locally using Docker Compose:
+
+```bash
+make deploy-local
+```
+
+This will start all services using Docker Compose.
+
 ## Usage
 
 1. **Create Guidelines**: Use the web interface to create coding guidelines that define your coding standards
 2. **Ask Questions**: Use the chat interface to ask questions about code generation
-3. **Generate Functions**: The system will retrieve relevant guidelines and generate code that follows them
 
 ## Development
 
