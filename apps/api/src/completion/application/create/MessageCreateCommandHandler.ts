@@ -1,4 +1,4 @@
-import { Inject } from '@nestjs/common';
+import { Inject, Logger } from '@nestjs/common';
 import { EventBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { EmbedService, Id, ResponseService } from '~shared/domain';
 import { MessageCreateCommand } from './MessageCreateCommand';
@@ -8,6 +8,7 @@ import { Message, MessageRepository, Prompt } from '~completion/domain';
 export class MessageCreateCommandHandler
   implements ICommandHandler<MessageCreateCommand>
 {
+  private readonly logger = new Logger(MessageCreateCommandHandler.name);
   constructor(
     @Inject(EventBus) private bus: EventBus,
     @Inject(MessageRepository) private repository: MessageRepository,
@@ -56,6 +57,13 @@ export class MessageCreateCommandHandler
     const embedding = await this.embedService.embed(content);
 
     await this.createAndEmit('user', chatId, turnId, content, embedding);
+
+    this.logger.debug(
+      JSON.stringify({
+        message: 'guidelines',
+        guidelines: command.data.guidelines,
+      }),
+    );
 
     const prompt = Prompt.create(
       content,
