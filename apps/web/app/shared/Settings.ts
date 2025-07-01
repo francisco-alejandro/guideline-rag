@@ -1,4 +1,4 @@
-class Settings {
+export class Settings {
   public readonly apiHost = process.env.NEXT_PUBLIC_API_URL;
 }
 

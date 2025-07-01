@@ -7,3 +7,7 @@ export type Message = {
   turnId: string;
   content: string;
 };
+
+export interface MessageCreateUseCase {
+  execute(content: string): Promise<Message>;
+}
