@@ -74,7 +74,7 @@ Or alternatively:
 yarn dev
 ```
 
-This will start both the API server (port 3001) and the web application (port 3000).
+This will start both the API server (port 4000) and the web application (port 3000).
 
 ### Local Deployment
 
